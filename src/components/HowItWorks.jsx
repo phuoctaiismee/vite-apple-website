@@ -17,6 +17,16 @@ const HowItWorks = () => {
             scale: 2,
             duration: 2,
             ease: 'power2.inOut'
+        });
+
+        gsap.to('#honkai', {
+            scrollTrigger: {
+                trigger: '#honkai',
+                toggleActions: 'play pause reverse restart',
+            },
+            onComplete: () => {
+                videoRef.current.play();
+            }
         })
 
         animateWithGsap('.g_fadeIn', {
@@ -55,7 +65,7 @@ const HowItWorks = () => {
                             />
                         </div>
                         <div className="hiw-video">
-                            <video className="pointer-events-none" playsInline preload="none" muted autoPlay ref={videoRef}>
+                            <video id='honkai' className="pointer-events-none" playsInline preload="none" muted autoPlay ref={videoRef}>
                                 <source src={frameVideo} type="video/mp4" />
                             </video>
                         </div>
